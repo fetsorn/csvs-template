@@ -1,0 +1,98 @@
+{
+  "nodes": {
+    "antea": {
+      "inputs": {
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1643337653,
+        "narHash": "sha256-6LzCJu01vtIKMrdRbgs4+eA0iPJVueKKNAfqxLgS7N8=",
+        "ref": "master",
+        "rev": "01378a5a3785d3743a5723c92069070ead4b3338",
+        "revCount": 54,
+        "type": "git",
+        "url": "https://source.fetsorn.website/fetsorn/antea"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://source.fetsorn.website/fetsorn/antea"
+      }
+    },
+    "beams": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_2"
+      },
+      "locked": {
+        "lastModified": 1643341198,
+        "narHash": "sha256-GTvbNDIBwrSs/kfpYJtuaJKwdb7SAzPe8gvt2PF9Y2c=",
+        "ref": "main",
+        "rev": "a694a9773bb4c8e6ae366a07a4cb5a9ffa5ea4d7",
+        "revCount": 4,
+        "type": "git",
+        "url": "https://source.fetsorn.website/fetsorn/beams"
+      },
+      "original": {
+        "ref": "main",
+        "type": "git",
+        "url": "https://source.fetsorn.website/fetsorn/beams"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1641762318,
+        "narHash": "sha256-QH3qz/f6wlPZMO7DBmFzgFq06QDtu+SWM70QTsYNUjY=",
+        "owner": "fetsorn",
+        "repo": "nixpkgs",
+        "rev": "340e124d368809dec50a3c8c7a7f51cfecc192a8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "fetsorn",
+        "ref": "yarn2nix-doDist",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1643119265,
+        "narHash": "sha256-mmDEctIkHSWcC/HRpeaw6QOe+DbNOSzc0wsXAHOZWwo=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "b05d2077ebe219f6a47825767f8bab5c6211d200",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_3": {
+      "locked": {
+        "lastModified": 1643119265,
+        "narHash": "sha256-mmDEctIkHSWcC/HRpeaw6QOe+DbNOSzc0wsXAHOZWwo=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "b05d2077ebe219f6a47825767f8bab5c6211d200",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "antea": "antea",
+        "beams": "beams",
+        "nixpkgs": "nixpkgs_3"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
