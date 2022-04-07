@@ -1,0 +1,57 @@
+{
+    "datum": {
+        "type": "string",
+        "label": "DATUM"
+    },
+    "hostdate": {
+        "parent": "datum",
+        "dir": "date",
+        "type": "date",
+        "label": "HOST_DATE"
+    },
+    "hostname": {
+        "parent": "datum",
+        "dir": "name",
+        "label": "HOST_NAME"
+    },
+    "guestdate": {
+        "parent": "datum",
+        "dir": "date",
+        "type": "date",
+        "label": "GUEST_DATE"
+    },
+    "guestname": {
+        "parent": "datum",
+        "dir": "name",
+        "label": "GUEST_NAME"
+    },
+    "tag": {
+        "parent": "datum",
+        "label": "TAG"
+    },
+    "filepath": {
+        "parent": "datum",
+        "label": "FILE_PATH",
+        "type": "string"
+    },
+    "moddate": {
+        "parent": "filepath",
+        "dir": "date",
+        "type": "date",
+        "label": "MOD_DATE"
+    },
+    "filetype": {
+        "parent": "filepath",
+        "label": "FILE_TYPE",
+        "type": "string"
+    },
+    "filesize": {
+        "parent": "filepath",
+        "label": "FILE_SIZE"
+    },
+    "filehash": {
+        "parent": "filepath",
+        "label": "FILE_HASH",
+        "type": "hash"
+    }
+}

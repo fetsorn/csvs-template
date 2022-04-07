@@ -4,10 +4,9 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     antea.url = "git+https://source.fetsorn.website/fetsorn/antea";
-    beams.url = "git+https://source.fetsorn.website/fetsorn/beams?ref=main";
+    csvs.url = "git+https://source.fetsorn.website/fetsorn/csvs?ref=main";
   };
-
-  outputs = inputs@{ self, nixpkgs, ... }:
+  outputs = inputs@{ nixpkgs, ... }:
     let
       eachSystem = systems: f:
         let
@@ -31,44 +30,16 @@
         "x86_64-linux"
       ];
     in eachSystem defaultSystems (system:
-      let
-        pkgs = import nixpkgs { inherit system; };
-        llines = (with pkgs;
-          stdenv.mkDerivation rec {
-            pname = "lifelines";
-            version = "unstable-2021-11-22";
-
-            src = fetchFromGitHub {
-              owner = pname;
-              repo = pname;
-              rev = "a5a54e8";
-              sha256 = "tqggAcYRRxtPjTLc+YJphYWdqfWxMG8V/cBOpMTiZ9I=";
-            };
-
-            buildInputs = [ gettext libiconv ncurses perl ];
-            nativeBuildInputs = [ autoreconfHook bison ];
-
-            meta = with lib; {
-              description = "Genealogy tool with ncurses interface";
-              homepage = "https://lifelines.github.io/lifelines/";
-              license = licenses.mit;
-              platforms = platforms.darwin;
-            };
-          });
-      in rec {
+      let pkgs = import nixpkgs { inherit system; };
+      in {
         devShell = pkgs.mkShell {
           buildInputs = [
             inputs.antea.packages.${system}.timeline-backend-local
-            llines
-            pkgs.recutils
-            pkgs.coreutils
-            pkgs.parallel
-            pkgs.file
-            pkgs.csvkit
-            pkgs.moreutils
+            inputs.csvs.packages.${system}.csvs-sh
+            pkgs.git-lfs
           ];
           shellHook = ''
-            ln -s ${inputs.beams.packages.${system}.beams}/bin scripts
+            export LC_ALL=ru_RU.utf-8
           '';
         };
       });
