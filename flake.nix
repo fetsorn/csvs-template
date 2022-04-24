@@ -15,9 +15,9 @@
               ret = f system;
               op = attrs: key:
                 let
-                  appendSystem = key: system: ret: { ${system} = ret.${key}; };
+                  appendSystem = key: system: ret: { $${system} = ret.$${key}; };
                 in attrs // {
-                  ${key} = (attrs.${key} or { })
+                  $${key} = (attrs.$${key} or { })
                     // (appendSystem key system ret);
                 };
             in builtins.foldl' op attrs (builtins.attrNames ret);
@@ -34,8 +34,8 @@
       in {
         devShell = pkgs.mkShell {
           buildInputs = [
-            inputs.antea.packages.${system}.timeline-backend-local
-            inputs.csvs.packages.${system}.csvs-sh
+            inputs.antea.packages.$${system}.timeline-backend-local
+            inputs.csvs.packages.$${system}.csvs-sh
             pkgs.git-lfs
           ];
           shellHook = ''
