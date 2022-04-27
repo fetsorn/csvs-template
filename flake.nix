@@ -3,8 +3,8 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    antea.url = "git+https://source.fetsorn.website/fetsorn/antea";
-    csvs.url = "git+https://source.fetsorn.website/fetsorn/csvs?ref=main";
+    csvs-ui.url = "git+https://source.fetsorn.website/fetsorn/csvs-ui?ref=main";
+    csvs-sh.url = "git+https://source.fetsorn.website/fetsorn/csvs-sh?ref=main";
   };
   outputs = inputs@{ nixpkgs, ... }:
     let
@@ -34,8 +34,8 @@
       in {
         devShell = pkgs.mkShell {
           buildInputs = [
-            inputs.antea.packages.$${system}.timeline-backend-local
-            inputs.csvs.packages.$${system}.csvs-sh
+            inputs.csvs-ui.packages.$${system}.csvs-ui-backend-local
+            inputs.csvs-sh.packages.$${system}.csvs-sh
             pkgs.git-lfs
           ];
           shellHook = ''
